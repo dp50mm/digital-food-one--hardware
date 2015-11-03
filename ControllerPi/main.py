@@ -9,7 +9,7 @@ import requests
 
 print("testing")
 
-r = requests.get('controlrequest')
+r = requests.get('http://digitalfoodone.appspot.com/controlrequest')
 r.status_code
 r.headers['content-type']
 r.encoding
