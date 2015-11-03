@@ -38,8 +38,8 @@ def turn_and_capture():
     files = {'file':open('my_img.jpg','rb')}
     resp = requests.post(upload_url,files=files)
     print(resp)
-    time.sleep(30)
-    ser.write('5')
+    time.sleep(10)
+    ser.write(chr(5))
     turn_and_capture()
 
 turn_and_capture()
