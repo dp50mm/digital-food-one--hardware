@@ -25,7 +25,7 @@ print("testing")
 
 counter = 0
 
-def turn_and_capture():
+def turn_and_capture(counter):
     r = requests.get('http://digitalfoodone.appspot.com/controlrequest')
     print(r.status_code)
     print(r.headers['content-type'])
@@ -41,8 +41,8 @@ def turn_and_capture():
     resp = requests.post(upload_url,files=files)
     print(resp)
     ser.write(chr(5))
-    counter += 1
+    counter = counter+1
     if(counter < 100):
-        turn_and_capture()
+        turn_and_capture(counter)
 
-turn_and_capture()
+turn_and_capture(counter)
