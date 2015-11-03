@@ -23,6 +23,8 @@ camera = picamera.PiCamera()
 
 print("testing")
 
+counter = 0
+
 def turn_and_capture():
     r = requests.get('http://digitalfoodone.appspot.com/controlrequest')
     print(r.status_code)
@@ -38,8 +40,9 @@ def turn_and_capture():
     files = {'file':open('my_img.jpg','rb')}
     resp = requests.post(upload_url,files=files)
     print(resp)
-    time.sleep(10)
     ser.write(chr(5))
-    turn_and_capture()
+    counter += 1
+    if(counter < 100):
+        turn_and_capture()
 
 turn_and_capture()
