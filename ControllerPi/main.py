@@ -7,6 +7,12 @@
 import datetime
 import requests
 
+import picamera
+
+camera = picamera.PiCamera()
+
+
+
 print("testing")
 
 r = requests.get('http://digitalfoodone.appspot.com/controlrequest')
@@ -15,5 +21,10 @@ print(r.headers['content-type'])
 print(r.encoding)
 print(r.text)
 data = r.json()
-print(r.json())
 print(data)
+upload_url = data['upload_url']
+
+my_file = open('my_image.jpg','wb')
+camera.capture(my_file)
+
+print my_file
