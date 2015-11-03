@@ -24,7 +24,4 @@ data = r.json()
 print(data)
 upload_url = data['upload_url']
 
-my_file = open('my_image.jpg','wb')
-camera.capture(my_file)
-
-print my_file
+camera.capture('my_img.jpg')
