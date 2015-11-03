@@ -13,7 +13,9 @@ import serial
 
 import time
 
-ser = serial.Serial('/dev/tty.usbserial',9600)
+import sys
+
+ser = serial.Serial(sys.argv[1],9600)
 
 camera = picamera.PiCamera()
 
