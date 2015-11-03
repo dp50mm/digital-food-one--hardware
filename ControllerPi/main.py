@@ -26,5 +26,5 @@ upload_url = data['upload_url']
 
 camera.capture('my_img.jpg')
 
-files = {'file':open('my_img.jpg','rb')}
+files = {'file':open('my_img.jpg','rb').read()}
 resp = requests.post(upload_url,files=files)
