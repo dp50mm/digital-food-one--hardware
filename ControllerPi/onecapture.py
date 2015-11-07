@@ -18,12 +18,12 @@ import sys
 ser = serial.Serial(sys.argv[1],9600)
 
 camera = picamera.PiCamera()
-camera.resolution = (2592, 1944)
-camera.shutter_speed = camera.exposure_speed
-camera.exposure_mode = 'off'
-g = camera.awb_gains
-camera.awb_mode = 'off'
-camera.awb_gains = g
+#camera.resolution = (2592, 1944)
+#camera.shutter_speed = camera.exposure_speed
+#camera.exposure_mode = 'off'
+#g = camera.awb_gains
+#camera.awb_mode = 'off'
+#camera.awb_gains = g
 
 print("testing")
 
