@@ -17,12 +17,8 @@ import sys
 
 camera = picamera.PiCamera()
 camera.resolution = (1900, 1200)
-camera.iso = 400
-camera.brightness = 50
-camera.shutter_speed = 1000000
-camera.exposure_mode = 'off'
-camera.awb_mode = 'off'
-camera.awb_gains = (float(sys.argv[1]),float(sys.argv[2]))
+camera.awb_mode = 'fluorescent'
+
 #camera.shutter_speed = camera.exposure_speed
 #camera.exposure_mode = 'off'
 #g = camera.awb_gains
