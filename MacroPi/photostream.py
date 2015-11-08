@@ -9,13 +9,11 @@ import requests
 
 import picamera
 
-import serial
 
 import time
 
 import sys
 
-ser = serial.Serial(sys.argv[1],9600)
 
 camera = picamera.PiCamera()
 
@@ -40,7 +38,6 @@ def turn_and_capture(counter):
     files = {'file':open('my_img.jpg','rb')}
     resp = requests.post(upload_url,files=files)
     print(resp)
-    ser.write(chr(5))
     counter = counter+1
     if(counter < 100):
         turn_and_capture(counter)
