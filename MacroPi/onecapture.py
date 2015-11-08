@@ -16,7 +16,12 @@ import sys
 
 
 camera = picamera.PiCamera()
-#camera.resolution = (2592, 1944)
+camera.resolution = (2592, 1944)
+camera.iso = 100
+camera.shutter_speed = 1000
+camera.exposure_mode = 'off'
+camera.awb_mode = 'off'
+camera.awb_gains = (4,4)
 #camera.shutter_speed = camera.exposure_speed
 #camera.exposure_mode = 'off'
 #g = camera.awb_gains
