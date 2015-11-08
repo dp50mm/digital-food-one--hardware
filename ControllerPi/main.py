@@ -18,7 +18,8 @@ import sys
 ser = serial.Serial(sys.argv[1],9600)
 
 camera = picamera.PiCamera()
-
+camera.resolution = (1900, 1200)
+camera.awb_mode = 'fluorescent'
 
 
 print("testing")
