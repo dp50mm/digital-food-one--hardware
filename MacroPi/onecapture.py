@@ -18,8 +18,8 @@ import sys
 camera = picamera.PiCamera()
 camera.resolution = (1900, 1200)
 camera.iso = 400
-camera.brightness = 60
-camera.shutter_speed = int(sys.argv[1])
+camera.brightness = 50
+camera.shutter_speed = int(1000000)
 camera.exposure_mode = 'off'
 camera.awb_mode = 'off'
 camera.awb_gains = (float(sys.argv[2]),float(sys.argv[3]))
