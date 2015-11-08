@@ -15,7 +15,7 @@ import time
 
 import sys
 
-import PIL
+from PIL import Image
 
 ser = serial.Serial(sys.argv[1],9600)
 
