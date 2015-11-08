@@ -54,7 +54,7 @@ def turn_and_capture(counter):
     red_points = []
     for x in range(10,width-10, 2):
         for y in range(10, height-10, 2):
-            if(pixels[x][y][0] > (pixels[x][y][1]+pixels[x][y][2])/1.5):
+            if(pixels[x][y][0] > (pixels[x][y][1]+pixels[x][y][2])/1 && pixels[x][y][0] > 100):
                 print('red found at x:'+str(x)+' y:'+str(y))
                 print(pixels[x][y])
                 red_points.append({
