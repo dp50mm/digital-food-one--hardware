@@ -17,6 +17,8 @@ import sys
 
 from PIL import Image
 
+import json
+
 ser = serial.Serial(sys.argv[1],9600)
 
 camera = picamera.PiCamera()
