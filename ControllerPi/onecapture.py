@@ -52,21 +52,25 @@ def turn_and_capture(counter):
     print('image height: '+str(height))
     pixels = [pixels[i * width:(i + 1) * width] for i in xrange(height)]
     red_points = []
+    average_x = 0
+    average_y = 0
     for y in range(10,height-10, 2):
         for x in range(10, width-10, 2):
             if(pixels[y][x][0] > (pixels[y][x][1]+pixels[y][x][2])/0.7) and pixels[y][x][0] > 100:
                 print('red found at x:'+str(x)+' y:'+str(y))
                 print(pixels[y][x])
+                average_x += x
+                average_y += y
                 red_points.append({
                     'x':x,
                     'y':y
                 })
-
+    print(len(red_points))
     data = {
         'analysis_data': {
-            'red points':'red_points',
-            'average_x':10,
-            'average_y':110,
+            'red points':red_points,
+            'average_x':average_x/len(red_points),
+            'average_y':average_y/len(red_points),
         }
     }
     resp = requests.post(upload_url,files=files, data=data)
