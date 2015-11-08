@@ -35,6 +35,7 @@ counter = 0
 
 def turn_and_capture(counter):
     r = requests.get('http://digitalfoodone.appspot.com/controlrequest')
+    print('turn and capture function start')
     print(r.status_code)
     print(r.headers['content-type'])
     print(r.encoding)
