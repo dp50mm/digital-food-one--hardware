@@ -42,7 +42,12 @@ def turn_and_capture(counter):
     camera.capture('my_img.jpg')
 
     files = {'file':open('my_img.jpg','rb')}
-    resp = requests.post(upload_url,files=files)
+    data = {
+        'green points':'abc',
+        'average_x':10,
+        'average_y':110,
+    }
+    resp = requests.post(upload_url,files=files, data=data)
     print(resp)
 
 turn_and_capture(counter)
