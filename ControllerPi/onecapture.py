@@ -48,10 +48,13 @@ def turn_and_capture(counter):
     im = Image.open('my_img.jpg')
     pixels = list(im.getdata())
     width, height = im.size
+    print('image width: '+width)
+    print('image height: '+height)
     pixels = [pixels[i * width:(i + 1) * width] for i in xrange(height)]
     red_points = []
-    for x in range(0,width, 2):
-        for y in range(0, height, 2):
+    for x in range(10,width-10, 2):
+        for y in range(10, height-10, 2):
+            print(pixels[x][y])
             if(pixels[x][y][0] > 150):
                 red_points.append({
                     'x':x,
