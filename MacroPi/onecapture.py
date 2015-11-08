@@ -9,13 +9,11 @@ import requests
 
 import picamera
 
-import serial
 
 import time
 
 import sys
 
-ser = serial.Serial(sys.argv[1],9600)
 
 camera = picamera.PiCamera()
 #camera.resolution = (2592, 1944)
