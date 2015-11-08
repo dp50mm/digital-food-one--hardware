@@ -15,6 +15,8 @@ import time
 
 import sys
 
+import PIL
+
 ser = serial.Serial(sys.argv[1],9600)
 
 camera = picamera.PiCamera()
@@ -42,10 +44,26 @@ def turn_and_capture(counter):
     camera.capture('my_img.jpg')
 
     files = {'file':open('my_img.jpg','rb')}
+
+    im = Image.open('my_img.jpg')
+    pixels = list(im.getdata())
+    width, height = im.size
+    pixels = [pixels[i * width:(i + 1) * width] for i in xrange(height)]
+    red_points = []
+    for x in range(0,width, 2):
+        for y in range(0, height, 2):
+            if(pixels[x][y][0] > 150):
+                red_points.append({
+                    'x':x,
+                    'y':y
+                })
+
     data = {
-        'green points':'abc',
-        'average_x':10,
-        'average_y':110,
+        'analysis_data': {
+            'red points':'red_points',
+            'average_x':10,
+            'average_y':110,
+        }
     }
     resp = requests.post(upload_url,files=files, data=data)
     print(resp)
