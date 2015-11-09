@@ -7,6 +7,7 @@ session_name = raw_input('Input session name: ')
 print('starting session: '+session_name)
 
 import analysis
+import imaging
 import serial
 
 counter = 0
