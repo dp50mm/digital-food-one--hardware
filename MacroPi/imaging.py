@@ -10,7 +10,7 @@ import time
 camera = picamera.PiCamera()
 camera.resolution = (1900, 1200)
 camera.awb_mode = 'fluorescent'
-camera.framerate = 0.5
+camera.framerate = 5
 # Wait for the automatic gain control to settle
 time.sleep(5)
 # Now fix the values
