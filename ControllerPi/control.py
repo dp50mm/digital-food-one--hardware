@@ -46,6 +46,5 @@ def looping():
 
 
 
-while True:
-    looping()
-    time.sleep(5)
+looping()
+time.sleep(5)

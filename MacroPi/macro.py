@@ -20,8 +20,7 @@ def looping():
     else:
         print('waiting...')
 
-while True:
-    looping()
-    counter += 1
-    print('counter: '+str(counter))
-    time.sleep(10)
+looping()
+counter += 1
+print('counter: '+str(counter))
+time.sleep(10)
