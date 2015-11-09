@@ -18,8 +18,6 @@ def red_spot(session_name):
     for y in range(10,height-10, 6):
         for x in range(10, width-10, 6):
             if(pixels[y][x][0] > (pixels[y][x][1]+pixels[y][x][2]/1.3)/1.1) and pixels[y][x][0] > 100:
-                print('red found at x:'+str(x)+' y:'+str(y))
-                print(pixels[y][x])
                 average_x += x
                 average_y += y
                 points.append({
@@ -31,7 +29,7 @@ def red_spot(session_name):
                     'x':x,
                     'y':y
                 })
-    print(len(points))
+    print('Found -'+len(points)+'- red points!')
     average_x = average_x/len(points)
     average_y = average_y/len(points)
 
@@ -42,8 +40,7 @@ def red_spot(session_name):
         'y':average_y
     })
 
-    print('average x: '+str(average_x))
-    print('average y: '+str(average_y))
+    print('average x: '+str(average_x)+' average y: '+str(average_y))
     json_dump = json.dumps({
         'points':points,
         'session_name':session_name
