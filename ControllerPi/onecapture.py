@@ -77,7 +77,7 @@ def turn_and_capture(counter):
     average_y = average_y/len(red_points)
     print('average x: '+str(average_x))
     print('average y: '+str(average_y))
-    resp = requests.post(upload_url, headers=headers, files=files, data={'json_dump':json.dumps(data)} )
+    resp = requests.post(upload_url, files=files, data={'json_dump':json.dumps(data)} )
     print(resp)
 
 turn_and_capture(counter)
