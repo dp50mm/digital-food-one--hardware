@@ -1,5 +1,9 @@
 import imaging
 
+import requests
+
+import time
+
 print('starting macrosession')
 
 session_name = raw_input('Input session name: ')
@@ -16,3 +20,7 @@ def looping():
         imaging.capture(session_name,'capturing')
     else:
         print('waiting...'+str(counter))
+
+while True:
+    looping()
+    time.sleep(1)
