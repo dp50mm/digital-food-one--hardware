@@ -16,5 +16,6 @@ print('starting session: '+session_name)
 
 resp = imaging.capture(session_name,'capturing')
 print(resp.status_code)
-print(resp.json)
+data = resp.json()
+print(data['status'])
 #analysis.red_spot('rotationtest')
