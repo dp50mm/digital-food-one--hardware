@@ -25,16 +25,22 @@ def looping():
         ser.write(chr(1))
         ser.write(chr(1))
         ser.write(chr(1))
+        imagestuff()
     if data['state'] == 'play_one':
         ser.write(chr(59))
-    resp = imaging.capture(session_name,'capturing')
-    print('Received http status code: '+str(resp.status_code))
-    data = resp.json()
-    print('Status: '+data['status'])
-    analysis_resp = analysis.red_spot(session_name)
-    print('Received http status code: '+str(analysis_resp.status_code))
-    analysis_data = analysis_resp.json()
-    print('Analysis status: '+analysis_data['status'])
+        imagestuff()
+    if data['state'] == 'play_two':
+        print('waiting')
+
+    def imagestuff():
+        resp = imaging.capture(session_name,'capturing')
+        print('Received http status code: '+str(resp.status_code))
+        data = resp.json()
+        print('Status: '+data['status'])
+        analysis_resp = analysis.red_spot(session_name)
+        print('Received http status code: '+str(analysis_resp.status_code))
+        analysis_data = analysis_resp.json()
+        print('Analysis status: '+analysis_data['status'])
 
 while True:
     looping()
