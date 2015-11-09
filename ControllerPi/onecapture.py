@@ -22,6 +22,9 @@ def looping():
         ser.write(chr(1))
         ser.write(chr(1))
         ser.write(chr(1))
+        ser.write(chr(1))
+        ser.write(chr(1))
+        ser.write(chr(1))
     if data['state'] == 'play_one':
         ser.write(chr(55))
     resp = imaging.capture(session_name,'capturing')
