@@ -15,7 +15,7 @@ counter = 0
 ser = serial.Serial(sys.argv[1],9600)
 
 def turn_and_capture(counter):
-    imaging.capture('rotationtest')
+    imaging.capture('rotationtest','capturing')
     analysis.red_spot('rotationtest')
     ser.write(chr(5))
     counter = counter+1
