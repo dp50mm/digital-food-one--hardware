@@ -91,7 +91,9 @@ def turn_and_capture(counter):
     #     {'11':'22'},
     # ]})
 
-    resp = requests.post(upload_url, files=files, data={'json_dump':json_dump} )
+    resp = requests.post(upload_url, files=files, data={'json_dump':'tested'} )
+    headers = {'content-type':'application/json'}
+    data_resp = requests.post('http://digitalfoodone.appspot.com/post_analysis', headers=headers, data={'json_dump'json_dump})
     print(resp)
 
 turn_and_capture(counter)
