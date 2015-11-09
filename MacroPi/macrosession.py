@@ -7,6 +7,3 @@ print('starting session: '+session_name)
 
 def capture(counter):
     imaging.capture(session_name,'capturing')
-
-while True:
-    
