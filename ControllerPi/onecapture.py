@@ -26,7 +26,7 @@ def looping():
         ser.write(chr(1))
         ser.write(chr(1))
     if data['state'] == 'play_one':
-        ser.write(chr(55))
+        ser.write(chr(59))
     resp = imaging.capture(session_name,'capturing')
     print('Received http status code: '+str(resp.status_code))
     data = resp.json()
