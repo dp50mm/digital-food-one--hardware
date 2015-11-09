@@ -9,7 +9,7 @@ import time
 
 camera = picamera.PiCamera()
 camera.resolution = (1900, 1200)
-camera.awb_mode = 'incandescent'
+camera.awb_mode = 'tungsten'
 camera.meter_mode = 'average'
 #camera.awb_gains = (1.85,1.9)
 time.sleep(1)
