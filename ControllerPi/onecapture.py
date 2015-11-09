@@ -22,7 +22,7 @@ def looping():
         ser.write(chr(1))
         ser.write(chr(1))
         ser.write(chr(1))
-    if data=['state'] == 'play_one':
+    if data['state'] == 'play_one':
         ser.write(chr(55))
     resp = imaging.capture(session_name,'capturing')
     print('Received http status code: '+str(resp.status_code))
