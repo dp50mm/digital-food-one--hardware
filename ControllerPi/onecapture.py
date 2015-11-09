@@ -41,7 +41,8 @@ def turn_and_capture(counter):
     upload_url = data['upload_url']
 
     camera.capture('my_img.jpg')
-
+    print('image captured')
+    time.sleep(1)
     files = {'file':open('my_img.jpg','rb')}
 
     red_spot('no session')
