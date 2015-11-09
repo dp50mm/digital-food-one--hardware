@@ -61,6 +61,11 @@ def turn_and_capture(counter):
                 average_x += x
                 average_y += y
                 red_points.append({
+                    'point_type':'red point',
+                    'result':'found',
+                    'red':pixels[y][x][0],
+                    'green':pixels[y][x][1],
+                    'blue':pixels[y][x][2],
                     'x':x,
                     'y':y
                 })
@@ -72,7 +77,6 @@ def turn_and_capture(counter):
     average_y = average_y/len(red_points)
     print('average x: '+str(average_x))
     print('average y: '+str(average_y))
-    headers = {'Content-Type':'application/json'}
     resp = requests.post(upload_url, headers=headers, files=files, data={'json_dump':json.dumps(data)} )
     print(resp)
 
