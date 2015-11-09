@@ -10,6 +10,16 @@ import time
 camera = picamera.PiCamera()
 camera.resolution = (1900, 1200)
 camera.awb_mode = 'fluorescent'
+camera.framerate = 30
+# Wait for the automatic gain control to settle
+time.sleep(2)
+# Now fix the values
+camera.shutter_speed = camera.exposure_speed
+camera.exposure_mode = 'off'
+g = camera.awb_gains
+camera.awb_mode = 'off'
+camera.awb_gains = g
+
 
 def capture(session_name, state):
     r = requests.get('http://digitalfoodone.appspot.com/macrocontrolrequest')
