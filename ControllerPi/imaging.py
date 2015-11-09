@@ -16,7 +16,7 @@ def capture(session_name, state):
     camera = picamera.PiCamera()
     camera.resolution = (1900, 1200)
     camera.awb_mode = 'off'
-    camera.awb_gains = (2.1,2.3)
+    camera.awb_gains = (1.9,2.2)
     time.sleep(1)
     camera.capture('my_img.jpg')
     camera.close()
