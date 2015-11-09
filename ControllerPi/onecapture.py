@@ -29,7 +29,7 @@ def looping():
         analysis_data = analysis_resp.json()
         print('Analysis status: '+analysis_data['status'])
 
-    
+
     if data['state'] == 'rewind':
         ser.write(chr(1))
         ser.write(chr(1))

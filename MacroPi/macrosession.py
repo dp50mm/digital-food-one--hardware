@@ -24,4 +24,4 @@ while True:
     looping()
     counter += 1
     print('counter: '+str(counter))
-    time.sleep(1)
+    time.sleep(10)
