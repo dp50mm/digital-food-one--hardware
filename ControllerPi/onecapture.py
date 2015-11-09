@@ -67,7 +67,6 @@ def turn_and_capture(counter):
     print(len(red_points))
     data = {
         'analysis_points': red_points
-        }
     }
     print('average x: '+str(data['analysis_data']['average_x']))
     print('average y: '+str(data['analysis_data']['average_y']))
