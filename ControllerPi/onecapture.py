@@ -66,15 +66,13 @@ def turn_and_capture(counter):
                 })
     print(len(red_points))
     data = {
-        'analysis_data': {
-            'red points':red_points,
-            'average_x':average_x/len(red_points),
-            'average_y':average_y/len(red_points),
+        'analysis_points': red_points
         }
     }
     print('average x: '+str(data['analysis_data']['average_x']))
     print('average y: '+str(data['analysis_data']['average_y']))
-    resp = requests.post(upload_url,files=files, data=data)
+    headers = {'Content-Type':'application/json'}
+    resp = requests.post(upload_url,files=files, data=json.dumps(data))
     print(resp)
 
 turn_and_capture(counter)
