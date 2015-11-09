@@ -29,7 +29,7 @@ def red_spot(session_name):
                     'x':x,
                     'y':y
                 })
-    print('Found -'+len(points)+'- red points!')
+    print('Found -'+str(len(points))+'- red points!')
     average_x = average_x/len(points)
     average_y = average_y/len(points)
 
