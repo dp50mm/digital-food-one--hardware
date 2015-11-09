@@ -50,7 +50,7 @@ def turn_and_capture(counter):
     print('image width: '+str(width))
     print('image height: '+str(height))
     pixels = [pixels[i * width:(i + 1) * width] for i in xrange(height)]
-    red_points = []
+    points = []
     average_x = 0
     average_y = 0
     for y in range(10,height-10, 4):
@@ -60,7 +60,7 @@ def turn_and_capture(counter):
                 print(pixels[y][x])
                 average_x += x
                 average_y += y
-                red_points.append({
+                points.append({
                     'point_type':'red point',
                     'result':'found',
                     'red':pixels[y][x][0],
@@ -69,15 +69,22 @@ def turn_and_capture(counter):
                     'x':x,
                     'y':y
                 })
-    print(len(red_points))
-    data = {
-        'analysis_points': red_points
-    }
-    average_x = average_x/len(red_points)
-    average_y = average_y/len(red_points)
+    print(len(points))
+    average_x = average_x/len(points)
+    average_y = average_y/len(points)
+
+    points.append({
+        'point_type':'average',
+        'result':'calculated',
+        'x':average_x,
+        'y':average_y
+    })
+
     print('average x: '+str(average_x))
     print('average y: '+str(average_y))
-    resp = requests.post(upload_url, files=files, data={'json_dump':json.dumps(data)} )
+    json_dump = json.dumps(points)
+    print('dump length: '+str(len(json_dump)))
+    resp = requests.post(upload_url, files=files, data={'json_dump':json_dump} )
     print(resp)
 
 turn_and_capture(counter)
