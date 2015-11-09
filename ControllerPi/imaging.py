@@ -29,3 +29,4 @@ def capture(session_name, state):
     resp = requests.post(upload_url, files=files, data={'session_name':session_name,'state':state})
     headers = {'Content-Type':'application/json'}
     print(resp)
+    return resp.json()
