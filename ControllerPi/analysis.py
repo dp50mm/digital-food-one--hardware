@@ -18,7 +18,7 @@ def red_spot(session_name):
     max_points = 0
     for y in range(10,height-10, 8):
         for x in range(10, width-10, 8):
-            if pixels[y][x][0] > 200 and pixels[y][x][1] < 180:
+            if pixels[y][x][0] > 200 and pixels[y][x][1] < 120 and pixels[y][x][2] > 150:
                 print('red pixel!')
                 print(pixels[y][x])
                 average_x += x
