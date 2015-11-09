@@ -20,7 +20,8 @@ def looping():
     else:
         print('waiting...')
 
-looping()
-counter += 1
-print('counter: '+str(counter))
-time.sleep(10)
+while True:
+    looping()
+    counter += 1
+    print('counter: '+str(counter))
+    time.sleep(10)

@@ -45,6 +45,6 @@ def looping():
         print('waiting')
 
 
-
-looping()
-time.sleep(5)
+while True:
+    looping()
+    time.sleep(8)
