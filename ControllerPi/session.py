@@ -7,7 +7,7 @@ import time
 print('session name: '+sys.argv[1])
 
 def job():
-    print('do the work')
+    print('::job::')
     r = requests.get('http://digitalfoodone.appspot.com/controllersessionstatus', params={'session_name':sys.argv[1]})
     data = r.json()
     state = data['state']
@@ -16,9 +16,10 @@ def job():
     print(action)
 
 abc = True
+my_counter = 0
 while abc:
     job()
-    time.sleep(100)
-    job()
-    time.sleep(100)
-    abc = False
+    time.sleep(2)
+    my_counter += 1
+    if my_counter > 5:
+        abc = False
