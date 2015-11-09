@@ -53,7 +53,7 @@ def turn_and_capture(counter):
     points = []
     average_x = 0
     average_y = 0
-    counter = 3
+    counter = 1
     for y in range(10,height-10, 4):
         for x in range(10, width-10, 4):
             if(pixels[y][x][0] > (pixels[y][x][1]+pixels[y][x][2])/0.7) and pixels[y][x][0] > 100:
@@ -79,12 +79,6 @@ def turn_and_capture(counter):
     average_x = average_x/len(points)
     average_y = average_y/len(points)
 
-    points.append({
-        'point_type':'average',
-        'result':'calculated',
-        'x':average_x,
-        'y':average_y
-    })
 
     print('average x: '+str(average_x))
     print('average y: '+str(average_y))
