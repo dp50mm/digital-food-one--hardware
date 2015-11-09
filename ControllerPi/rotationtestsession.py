@@ -1,4 +1,6 @@
 
+import sys
+
 print('starting rotation test session')
 
 session_name = raw_input('Input session name: ')
