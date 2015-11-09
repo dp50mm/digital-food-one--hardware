@@ -53,38 +53,41 @@ def turn_and_capture(counter):
     points = []
     average_x = 0
     average_y = 0
-    for y in range(10,height-10, 4):
-        for x in range(10, width-10, 4):
-            if(pixels[y][x][0] > (pixels[y][x][1]+pixels[y][x][2])/0.7) and pixels[y][x][0] > 100:
-                print('red found at x:'+str(x)+' y:'+str(y))
-                print(pixels[y][x])
-                average_x += x
-                average_y += y
-                points.append({
-                    'point_type':'red point',
-                    'result':'found',
-                    'red':pixels[y][x][0],
-                    'green':pixels[y][x][1],
-                    'blue':pixels[y][x][2],
-                    'x':x,
-                    'y':y
-                })
-    print(len(points))
-    average_x = average_x/len(points)
-    average_y = average_y/len(points)
+    # for y in range(10,height-10, 4):
+    #     for x in range(10, width-10, 4):
+    #         if(pixels[y][x][0] > (pixels[y][x][1]+pixels[y][x][2])/0.7) and pixels[y][x][0] > 100:
+    #             print('red found at x:'+str(x)+' y:'+str(y))
+    #             print(pixels[y][x])
+    #             average_x += x
+    #             average_y += y
+    #             points.append({
+    #                 'point_type':'red point',
+    #                 'result':'found',
+    #                 'red':pixels[y][x][0],
+    #                 'green':pixels[y][x][1],
+    #                 'blue':pixels[y][x][2],
+    #                 'x':x,
+    #                 'y':y
+    #             })
+    # print(len(points))
+    # average_x = average_x/len(points)
+    # average_y = average_y/len(points)
+    #
+    # points.append({
+    #     'point_type':'average',
+    #     'result':'calculated',
+    #     'x':average_x,
+    #     'y':average_y
+    # })
+    #
+    # print('average x: '+str(average_x))
+    # print('average y: '+str(average_y))
+    # json_dump = json.dumps(points)
+    # print('dump length: '+str(len(json_dump)))
 
-    points.append({
-        'point_type':'average',
-        'result':'calculated',
-        'x':average_x,
-        'y':average_y
-    })
+    test_dump = json.dumps({'abc':'wowzie','def':'kablam'})
 
-    print('average x: '+str(average_x))
-    print('average y: '+str(average_y))
-    json_dump = json.dumps(points)
-    print('dump length: '+str(len(json_dump)))
-    resp = requests.post(upload_url, files=files, data={'json_dump':json_dump} )
+    resp = requests.post(upload_url, files=files, data={'json_dump':test_dump} )
     print(resp)
 
 turn_and_capture(counter)
