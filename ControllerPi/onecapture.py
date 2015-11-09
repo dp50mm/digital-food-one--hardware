@@ -18,7 +18,10 @@ print('starting session: '+session_name)
 
 print('checking session state')
 r = requests.get('http://digitalfoodone.appspot.com/controllersessionstatus', data={'session_name':session_name})
-print r.json()
+print(r.status_code)
+print(r.headers['content-type'])
+print(r.encoding)
+print(r.text)
 
 imaging.capture('rotationtest','capturing')
 analysis.red_spot('rotationtest')
