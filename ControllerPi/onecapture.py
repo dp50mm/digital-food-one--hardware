@@ -1,17 +1,9 @@
-# Controls the rotating platform
-#
-# The servo rotates the platform through a friction wheel.
-# This wheel can slip when it is blocked in any way as a protection.
-#
-# A connected webcam looks down on the platform to control position.
 
 import sys
 import requests
 
 import imaging
 import analysis
-
-print('capturing a single image')
 
 session_name = raw_input('Input session name: ')
 print('starting session: '+session_name)
@@ -23,5 +15,6 @@ print('starting session: '+session_name)
 # print(r.encoding)
 # print(r)
 
-imaging.capture(session_name,'capturing')
+resp = imaging.capture(session_name,'capturing')
+print(resp.status_code)
 #analysis.red_spot('rotationtest')
