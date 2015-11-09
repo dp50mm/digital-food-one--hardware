@@ -20,6 +20,7 @@ def capture(session_name, state):
     upload_url = data['upload_url']
 
     camera.capture('my_img.jpg')
+    camera.close()
     time.sleep(1)
     files = {'file':open('my_img.jpg','rb')}
     resp = requests.post(upload_url, files=files, data={'session_name':session_name,'state':state})
