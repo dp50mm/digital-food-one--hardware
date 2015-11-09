@@ -1,4 +1,7 @@
+import json
+
 from PIL import Image
+
 
 def red_spot(session_name):
     im = Image.open('my_img.jpg')
