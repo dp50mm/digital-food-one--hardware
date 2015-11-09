@@ -85,7 +85,11 @@ def turn_and_capture(counter):
     # json_dump = json.dumps(points)
     # print('dump length: '+str(len(json_dump)))
 
-    test_dump = json.dumps({'abc':'wowzie','def':'kablam'})
+    test_dump = json.dumps({'abc':'wowzie','def':[
+        {'11':'22'},
+        {'11':'22'},
+        {'11':'22'},
+    ]})
 
     resp = requests.post(upload_url, files=files, data={'json_dump':test_dump} )
     print(resp)
