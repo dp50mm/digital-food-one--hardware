@@ -11,7 +11,7 @@ print('Sending photo to session: -'+session_name+'-')
 req = requests.get('http://digitalfoodone.appspot.com/controllersessionstatus', params={'session_name':session_name})
 print(str(req.status_code))
 data = req.json()
-print(data)
+print(data['state'])
 
 
 # resp = imaging.capture(session_name,'capturing')
