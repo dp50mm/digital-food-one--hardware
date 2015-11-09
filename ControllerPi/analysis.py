@@ -15,6 +15,7 @@ def red_spot(session_name):
     points = []
     average_x = 0
     average_y = 0
+    max_points = 500
     for y in range(10,height-10, 10):
         for x in range(10, width-10, 10):
             if(pixels[y][x][0] > (pixels[y][x][1]+pixels[y][x][2]/1.3)/1.1) and pixels[y][x][0] > 100:
@@ -29,6 +30,11 @@ def red_spot(session_name):
                     'x':x,
                     'y':y
                 })
+            max_points -= 1
+            if max_points < 1:
+                break
+        if max_points < 1:
+            break
     print('Found -'+str(len(points))+'- red points!')
     average_x = average_x/len(points)
     average_y = average_y/len(points)
