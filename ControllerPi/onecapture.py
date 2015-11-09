@@ -15,8 +15,6 @@ import time
 
 import sys
 
-from PIL import Image
-
 import json
 
 from analysis import red_spot

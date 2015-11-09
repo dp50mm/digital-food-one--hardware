@@ -1,3 +1,5 @@
+import datetime
+import requests
 import json
 
 from PIL import Image
