@@ -48,7 +48,7 @@ def turn_and_capture(counter):
 
     red_spot('no session')
 
-    resp = requests.post(upload_url, files=files, data={'json_dump':'tested'} )
+    resp = requests.post(upload_url, files=files, data={'session_name':'no session'})
     headers = {'Content-Type':'application/json'}
     print(resp)
 
