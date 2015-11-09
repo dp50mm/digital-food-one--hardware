@@ -8,9 +8,9 @@ import analysis
 import serial
 import time
 
-ser = serial.Serial(sys.argv[1], 9600)
+ser = serial.Serial(sys.argv[2], 9600)
 
-session_name = raw_input('Input session name: ')
+session_name = sys.argv[1]
 print('Sending photo to session: -'+session_name+'-')
 
 def looping():
