@@ -15,7 +15,9 @@ def capture(session_name, state):
     upload_url = data['upload_url']
     camera = picamera.PiCamera()
     camera.resolution = (1900, 1200)
-    camera.awb_mode = 'fluorescent'
+    camera.awb_mode = 'off'
+    camera.awb_gains = (1,1)
+    time.sleep(1)
     camera.capture('my_img.jpg')
     camera.close()
     time.sleep(1)
