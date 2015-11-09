@@ -15,7 +15,10 @@ def job():
     print(state)
     print(action)
 
-
-while True:
+abc = True
+while abc:
     job()
     time.sleep(100)
+    job()
+    time.sleep(100)
+    abc = False
