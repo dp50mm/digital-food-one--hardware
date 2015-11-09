@@ -17,7 +17,7 @@ session_name = raw_input('Input session name: ')
 print('starting session: '+session_name)
 
 print('checking session state')
-r = requests.get('http://digitalfoodone.appspot.com/controllersessionstatus', data={'session_name':session_name})
+r = requests.get('http://digitalfoodone.appspot.com/controllersessionstatus')
 print(r.status_code)
 print(r.headers['content-type'])
 print(r.encoding)

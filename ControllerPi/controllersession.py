@@ -11,7 +11,7 @@ print('starting session: '+session_name)
 
 def job():
     print('::job::')
-    r = requests.get('http://digitalfoodone.appspot.com/controllersessionstatus', data={'session_name':session_name})
+    r = requests.get('http://digitalfoodone.appspot.com/controllersessionstatus', params={'session_name':session_name})
     data = r.json()
     if data['state'] == 'rewind':
         print('rewind!')
@@ -20,7 +20,7 @@ def job():
     else if data['state'] == 'play_macro':
         print('macros turn')
     else:
-        print('unkown state')
+        print('')
 
 while True:
     job()
