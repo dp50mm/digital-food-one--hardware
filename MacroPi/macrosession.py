@@ -15,12 +15,13 @@ def looping():
     print(str(req.status_code))
     data = req.json()
     print(data['state'])
-    counter += 1
     if data['state'] == 'play_two':
         imaging.capture(session_name,'capturing')
     else:
-        print('waiting...'+str(counter))
+        print('waiting...')
 
 while True:
     looping()
+    counter += 1
+    print('counter: '+str(counter))
     time.sleep(1)
