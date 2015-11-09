@@ -73,7 +73,7 @@ def turn_and_capture(counter):
     print('average x: '+str(average_x))
     print('average y: '+str(average_y))
     headers = {'Content-Type':'application/json'}
-    resp = requests.post(upload_url, headers=headers, files=files, data=json.dumps(data))
+    resp = requests.post(upload_url, headers=headers, files=files, data={'json_dump':json.dumps(data)} )
     print(resp)
 
 turn_and_capture(counter)
