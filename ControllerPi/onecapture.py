@@ -22,7 +22,7 @@ print(r.status_code)
 print(r.headers['content-type'])
 print(r.encoding)
 data = r.json
-print(data)
+print(data['state'])
 
-imaging.capture('rotationtest','capturing')
-analysis.red_spot('rotationtest')
+#imaging.capture('rotationtest','capturing')
+#analysis.red_spot('rotationtest')
