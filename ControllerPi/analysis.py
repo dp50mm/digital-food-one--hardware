@@ -15,8 +15,8 @@ def red_spot(session_name):
     points = []
     average_x = 0
     average_y = 0
-    for y in range(10,height-10, 2):
-        for x in range(10, width-10, 2):
+    for y in range(10,height-10, 6):
+        for x in range(10, width-10, 6):
             if(pixels[y][x][0] > (pixels[y][x][1]+pixels[y][x][2]/1.3)/1.1) and pixels[y][x][0] > 100:
                 print('red found at x:'+str(x)+' y:'+str(y))
                 print(pixels[y][x])
