@@ -24,4 +24,6 @@ if data['state'] == 'rewind':
     print('Received http status code: '+str(resp.status_code))
     data = resp.json()
     print('Status: '+data['status'])
-    analysis.red_spot('rotationtest')
+    analysis_resp = analysis.red_spot('rotationtest')
+    analysis_data = analysis_resp.json()
+    print('Analysis status: '+analysis_data['status'])
