@@ -53,8 +53,8 @@ def turn_and_capture(counter):
     red_points = []
     average_x = 0
     average_y = 0
-    for y in range(10,height-10, 2):
-        for x in range(10, width-10, 2):
+    for y in range(10,height-10, 4):
+        for x in range(10, width-10, 4):
             if(pixels[y][x][0] > (pixels[y][x][1]+pixels[y][x][2])/0.7) and pixels[y][x][0] > 100:
                 print('red found at x:'+str(x)+' y:'+str(y))
                 print(pixels[y][x])
@@ -68,8 +68,10 @@ def turn_and_capture(counter):
     data = {
         'analysis_points': red_points
     }
-    print('average x: '+str(data['analysis_data']['average_x']))
-    print('average y: '+str(data['analysis_data']['average_y']))
+    average_x = average_x/len(red_points)
+    average_y = average_y/len(red_points)
+    print('average x: '+str(average_x))
+    print('average y: '+str(average_y))
     headers = {'Content-Type':'application/json'}
     resp = requests.post(upload_url, headers=headers, files=files, data=json.dumps(data))
     print(resp)
