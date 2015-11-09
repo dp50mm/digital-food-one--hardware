@@ -36,8 +36,11 @@ def red_spot(session_name):
         if max_points < 1:
             break
     print('Found -'+str(len(points))+'- red points!')
-    average_x = average_x/len(points)
-    average_y = average_y/len(points)
+    if(len(points) > 1) {
+        average_x = average_x/len(points)
+        average_y = average_y/len(points)
+    } 
+
 
     points.append({
         'point_type':'average',
