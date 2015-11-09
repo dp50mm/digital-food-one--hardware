@@ -21,7 +21,8 @@ r = requests.get('http://digitalfoodone.appspot.com/controllersessionstatus', da
 print(r.status_code)
 print(r.headers['content-type'])
 print(r.encoding)
-print(r.text)
+data = r.json
+print(data)
 
 imaging.capture('rotationtest','capturing')
 analysis.red_spot('rotationtest')
