@@ -8,7 +8,6 @@ import analysis
 session_name = raw_input('Input session name: ')
 print('starting session: '+session_name)
 
-# print('checking session state')
 # r = requests.get('http://digitalfoodone.appspot.com/controllersessionstatus', data={'session_name':session_name})
 # print(r.status_code)
 # print(r.headers['content-type'])
@@ -17,4 +16,5 @@ print('starting session: '+session_name)
 
 resp = imaging.capture(session_name,'capturing')
 print(resp.status_code)
+print(resp.json)
 #analysis.red_spot('rotationtest')
