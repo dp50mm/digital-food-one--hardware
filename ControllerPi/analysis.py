@@ -9,6 +9,7 @@ import time
 analysis_post_error_counter = 0
 
 def red_spot(session_name):
+    global analysis_post_error_counter
     im = Image.open('my_img.jpg')
     pixels = list(im.getdata())
     width, height = im.size
