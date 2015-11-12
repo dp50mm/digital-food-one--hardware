@@ -13,9 +13,9 @@ counter = 0
 
 session_status_request_error_counter = 0
 
-def looping(session_status_request_error_counter):
-    sessionstatusrequest_successful = False
-    while sessionstatusrequest_successful == False:
+def looping():
+    global session_status_request_error_counter
+    while True:
         try:
             req = requests.get('http://digitalfoodone.appspot.com/controllersessionstatus', params={'session_name':session_name})
             print(str(req.status_code))
@@ -26,6 +26,7 @@ def looping(session_status_request_error_counter):
                 print('Image capture response: '+respons['status'])
             else:
                 print('waiting...')
+            break
         except requests.exceptions.Timeout:
             print("session status request: request timeout")
         except requests.exceptions.TooManyRedirects:
@@ -39,7 +40,7 @@ def looping(session_status_request_error_counter):
         time.sleep(10)
 
 while True:
-    looping(session_status_request_error_counter)
+    looping()
     counter += 1
     print('counter: '+str(counter))
     time.sleep(10)

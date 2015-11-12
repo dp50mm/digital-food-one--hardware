@@ -57,10 +57,9 @@ def red_spot(session_name):
     headers = {'Content-Type':'application/json'}
 
     analysis_post_successful = False
-    while analysis_post_successful == False:
+    while True:
         try:
             data_resp = requests.post('http://digitalfoodone.appspot.com/post_analysis', headers=headers, data=json_dump)
-            analysis_post_successful = True
             return data_resp
         except requests.exceptions.Timeout:
             print("analysis post: request timeout")

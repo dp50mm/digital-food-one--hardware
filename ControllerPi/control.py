@@ -19,6 +19,7 @@ def looping():
     while True:
         try:
             req = requests.get('http://digitalfoodone.appspot.com/controllersessionstatus', params={'session_name':session_name})
+            print('session status request successful')
             print(str(req.status_code))
             data = req.json()
             print(data['state'])
