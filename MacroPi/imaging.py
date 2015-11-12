@@ -28,7 +28,7 @@ def capture(session_name, state):
                 try:
                     print('Image post request successful!')
                     resp = requests.post(upload_url, files=files, data={'session_name':session_name,'state':state})
-                    return resp
+                    return resp.json()
                 except requests.exceptions.Timeout:
                     print("image post: request timeout")
                 except requests.exceptions.TooManyRedirects:
