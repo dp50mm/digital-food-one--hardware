@@ -16,8 +16,7 @@ session_status_request_error_counter = 0
 
 def looping():
     global session_status_request_error_counter
-    sessionstatusrequest_successful = False
-    while sessionstatusrequest_successful == False:
+    while True:
         try:
             req = requests.get('http://digitalfoodone.appspot.com/controllersessionstatus', params={'session_name':session_name})
             print(str(req.status_code))
@@ -48,7 +47,7 @@ def looping():
                 imagestuff()
             if data['state'] == 'play_two':
                 print('waiting')
-            sessionstatusrequest_successful = True
+            break
         except requests.exceptions.Timeout:
             print("session status request: request timeout")
         except requests.exceptions.TooManyRedirects:
