@@ -58,7 +58,7 @@ def looping():
             print e
         print('apparently not successful - trying again in 10 sec')
         session_status_request_error_counter += 1
-        print('number of status request errors: '+session_status_request_error_counter)
+        print('number of status request errors: '+str(session_status_request_error_counter))
         time.sleep(10)
 
 
