@@ -12,9 +12,9 @@ ser = serial.Serial(sys.argv[2], 9600)
 
 session_name = sys.argv[1]
 print('Sending photo to session: -'+session_name+'-')
-session_status_request_error_counter = 0
+global session_status_request_error_counter = 0
 
-def looping(session_status_request_error_counter):
+def looping():
     sessionstatusrequest_successful = False
     while sessionstatusrequest_successful == False:
         try:
@@ -56,11 +56,11 @@ def looping(session_status_request_error_counter):
             print('session status request: request exception:')
             print e
         print('apparently not successful - trying again in 10 sec')
-        session_status_request_error_counter += 1
+        global session_status_request_error_counter += 1
         print('number of status request errors: '+session_status_request_error_counter)
         time.sleep(10)
 
 
 while True:
-    looping(session_status_request_error_counter)
+    looping()
     time.sleep(8)
