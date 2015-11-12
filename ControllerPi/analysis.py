@@ -4,6 +4,9 @@ import json
 
 from PIL import Image
 
+import time
+
+analysis_post_error_counter = 0
 
 def red_spot(session_name):
     im = Image.open('my_img.jpg')
@@ -52,5 +55,21 @@ def red_spot(session_name):
     })
     print('dump length: '+str(len(json_dump)))
     headers = {'Content-Type':'application/json'}
-    data_resp = requests.post('http://digitalfoodone.appspot.com/post_analysis', headers=headers, data=json_dump)
-    return data_resp
+
+    analysis_post_successful = False
+    while analysis_post_successful == False:
+        try:
+            data_resp = requests.post('http://digitalfoodone.appspot.com/post_analysis', headers=headers, data=json_dump)
+            analysis_post_successful = True
+            return data_resp
+        except requests.exceptions.Timeout:
+            print("analysis post: request timeout")
+        except requests.exceptions.TooManyRedirects:
+            print('analysis post: too many redirects')
+        except requests.exceptions.RequestException as e:
+            print('analysis post: request exception:')
+            print e
+        print('analysis post failed - trying again in 10 sec')
+        analysis_post_error_counter += 1
+        print('analysis post error count: '+analysis_post_error_counter)
+        time.sleep(10)

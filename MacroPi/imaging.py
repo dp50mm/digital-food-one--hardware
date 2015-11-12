@@ -15,12 +15,39 @@ camera.meter_mode = 'average'
 time.sleep(1)
 
 def capture(session_name, state):
-    r = requests.get('http://digitalfoodone.appspot.com/macrocontrolrequest')
-    data = r.json()
-    upload_url = data['upload_url']
-
-    camera.capture('my_img.jpg')
-    time.sleep(1)
-    files = {'file':open('my_img.jpg','rb')}
-    resp = requests.post(upload_url, files=files, data={'session_name':session_name,'state':state})
-    return resp
+    request_successful = False
+    while request_successful == False:
+        try:
+            r = requests.get('http://digitalfoodone.appspot.com/macrocontrolrequest')
+            data = r.json()
+            upload_url = data['upload_url']
+            request_successful == True
+            camera.capture('my_img.jpg')
+            time.sleep(1)
+            files = {'file':open('my_img.jpg','rb')}
+            post_successful = False
+            while post_successful == False:
+                print('Try image post request -')
+                try:
+                    print('Image post request successful!')
+                    resp = requests.post(upload_url, files=files, data={'session_name':session_name,'state':state})
+                    post_succesful = True
+                    return resp
+                except requests.exceptions.Timeout:
+                    print("image post: request timeout")
+                except requests.exceptions.TooManyRedirects:
+                    print('image post: too many redirects')
+                except requests.exceptions.RequestException as e:
+                    print('image post: request exception: ')
+                    print e
+                print('apparently not successful - trying again in 10 sec')
+                time.sleep(10)
+        except requests.exceptions.Timeout:
+            print('image blobstore url request: timeout')
+        except requests.exceptions.TooManyRedirects:
+            print('image blobstore url request: too many redirects')
+        except requests.exceptions.RequestException as e:
+            print('image blobstore url request: request exception:')
+            print(e)
+        print('apparently not successful - trying again in 10 sec')
+        time.sleep(10)
