@@ -14,7 +14,7 @@ session_name = sys.argv[1]
 print('Sending photo to session: -'+session_name+'-')
 session_status_request_error_counter = 0
 
-def looping():
+def looping(session_status_request_error_counter):
     sessionstatusrequest_successful = False
     while sessionstatusrequest_successful == False:
         try:
@@ -62,5 +62,5 @@ def looping():
 
 
 while True:
-    looping()
+    looping(session_status_request_error_counter)
     time.sleep(8)

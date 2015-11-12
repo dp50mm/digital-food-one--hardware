@@ -13,7 +13,7 @@ counter = 0
 
 session_status_request_error_counter = 0
 
-def looping():
+def looping(session_status_request_error_counter):
     sessionstatusrequest_successful = False
     while sessionstatusrequest_successful == False:
         try:
@@ -39,7 +39,7 @@ def looping():
         time.sleep(10)
 
 while True:
-    looping()
+    looping(session_status_request_error_counter)
     counter += 1
     print('counter: '+str(counter))
     time.sleep(10)
