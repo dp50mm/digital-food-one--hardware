@@ -71,5 +71,5 @@ def red_spot(session_name):
             print e
         print('analysis post failed - trying again in 10 sec')
         analysis_post_error_counter += 1
-        print('analysis post error count: '+analysis_post_error_counter)
+        print('analysis post error count: '+str(analysis_post_error_counter))
         time.sleep(10)
