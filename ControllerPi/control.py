@@ -31,8 +31,11 @@ def looping():
                 print('Status: '+data['status'])
                 analysis_resp = analysis.red_spot(session_name)
                 print('Received http status code: '+str(analysis_resp.status_code))
-                analysis_data = analysis_resp.json()
-                print('Analysis status: '+analysis_data['status'])
+                if analysis_resp.status_code == 200:
+                    analysis_data = analysis_resp.json()
+                    print('Analysis status: '+analysis_data['status'])
+                else:
+                    print('500 error on analysis post')
 
 
             if data['state'] == 'rewind':
